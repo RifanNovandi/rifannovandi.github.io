@@ -76,9 +76,6 @@
 <body>
   <header>
     <h1>Tugas 1 Sistem Operasi</h1>
-    <p><strong>Nama:</strong> Rifan Novandi</p>
-    <p><strong>Tanggal Lahir:</strong> 12 November 2002</p>
-    <p><strong>NIM:</strong> 2303010145</p>
   </header>
 
   <h2>Simulasi Disk Scheduling</h2>
@@ -158,9 +155,17 @@
   <p>
     Simulasi ini menunjukkan bagaimana berbagai algoritma penjadwalan disk (disk scheduling) bekerja dalam mengatur pergerakan head untuk mengakses track tertentu.
     <br><br>
-    <strong>FCFS</strong> (First Come First Serve) langsung mengakses track sesuai urutan permintaan, sehingga menghasilkan lintasan sangat panjang (17.686 track). <br>
-    <strong>SSTF</strong> memilih track terdekat terlebih dahulu, sehingga jauh lebih efisien (7.858 track). <br>
-    <strong>SCAN</strong> dan <strong>LOOK</strong> bergerak searah hingga ujung lalu berbalik arah.
+    <strong>FCFS</strong> (First Come First Serve) langsung mengakses track sesuai urutan permintaan, sehingga menghasilkan lintasan sangat panjang (17.686 track). Algoritma ini kurang efisien, karena kepala disk bergerak dari track satu ke track lainnya tanpa mempertimbangkan jarak terdekat. <br>
+    <strong>SSTF</strong> (Shortest Seek Time First) memilih track terdekat terlebih dahulu dari posisi head saat ini, sehingga lebih efisien daripada FCFS, dengan total lintasan **7.858** track. <br>
+    <strong>SCAN</strong> bergerak dalam satu arah hingga mencapai ujung, kemudian membalik arah dan melanjutkan pemrosesan permintaan yang belum terjangkau. Algoritma ini membutuhkan total lintasan **6.089** track. <br>
+    <strong>C-SCAN</strong> serupa dengan SCAN, tetapi setelah mencapai ujung, kepala disk kembali ke posisi awal untuk melanjutkan proses, mencatatkan total lintasan **8.766** track. <br>
+    <strong>LOOK</strong> bekerja mirip dengan SCAN, tetapi berhenti tepat di track terakhir yang diperlukan tanpa harus mencapai ujung disk. Algoritma ini efisien dengan total lintasan **5.912** track. <br>
+    <strong>C-LOOK</strong> menggunakan prinsip yang mirip dengan C-SCAN, namun tidak memindai hingga ujung disk, menghasilkan total lintasan **6.790** track. <br>
+    Algoritma <strong>PTPD</strong> (Pengurutan Terlebih Dahulu) menyusun track berdasarkan urutan yang sudah ditentukan sebelumnya dan mengaksesnya dalam urutan tersebut. Ini adalah metode yang efisien dengan total lintasan **5.774** track.
   </p>
+
+  <footer>
+    <p>&copy; 2025 Tugas Sistem Operasi | Universitas XYZ</p>
+  </footer>
 </body>
 </html>
