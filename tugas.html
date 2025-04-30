@@ -2,30 +2,82 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Simulasi Disk Scheduling</title>
+  <title>Tugas 1 Sistem Operasi - Simulasi Disk Scheduling</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 30px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 30px;
+      background: linear-gradient(135deg, #e0f7fa, #ffffff);
+      color: #333;
     }
+
+    header {
+      background-color: #1565c0;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
     h2 {
-      color: #2c3e50;
+      color: #1565c0;
+      border-bottom: 2px solid #1976d2;
+      padding-bottom: 5px;
     }
+
+    p {
+      font-size: 16px;
+    }
+
+    mark {
+      background-color: #ffeb3b;
+      font-weight: bold;
+    }
+
     canvas {
       max-width: 100%;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
     }
+
     table {
       border-collapse: collapse;
+      width: 100%;
       margin-top: 20px;
+      background: #ffffffcc;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    th, td {
-      border: 1px solid #888;
-      padding: 8px 12px;
+
+    th {
+      background-color: #1976d2;
+      color: white;
+      padding: 10px;
+      text-align: left;
+    }
+
+    td {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 14px;
+      text-align: center;
+      color: #777;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Tugas 1 Sistem Operasi</h1>
+  </header>
+
   <h2>Simulasi Disk Scheduling</h2>
   <p><strong>Jumlah Track:</strong> 2000</p>
   <p><strong>Posisi Head Awal:</strong> 1234</p>
@@ -55,24 +107,43 @@
         datasets: [{
           label: 'FCFS',
           data: [1234, 1600, 1050, 1775, 1950, 150, 825, 75, 1300, 1450, 600, 600, 1600, 1050, 30, 1900, 2005, 700, 1300, 55, 425, 123, 700, 1600, 200],
-          borderColor: 'red',
-          fill: false
+          borderColor: '#e53935',
+          backgroundColor: '#e53935',
+          fill: false,
+          tension: 0.3,
+          pointRadius: 4,
+          pointHoverRadius: 6
         }]
       },
       options: {
         responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: '#333'
+            }
+          }
+        },
         scales: {
           y: {
             beginAtZero: false,
             title: {
               display: true,
-              text: 'Track Position'
+              text: 'Track Position',
+              color: '#333'
+            },
+            ticks: {
+              color: '#333'
             }
           },
           x: {
             title: {
               display: true,
-              text: 'Step Ke-n'
+              text: 'Step Ke-n',
+              color: '#333'
+            },
+            ticks: {
+              color: '#333'
             }
           }
         }
@@ -86,9 +157,4 @@
     <br><br>
     <strong>FCFS</strong> (First Come First Serve) langsung mengakses track sesuai urutan permintaan, sehingga menghasilkan lintasan sangat panjang (17.686 track). <br>
     <strong>SSTF</strong> memilih track terdekat terlebih dahulu, sehingga jauh lebih efisien (7.858 track). <br>
-    <strong>SCAN</strong> dan <strong>LOOK</strong> bergerak searah hingga ujung lalu berbalik, sementara <strong>CSCAN</strong> dan <strong>CLOOK</strong> melakukan lompatan dari akhir ke awal untuk efisiensi. <br>
-    <strong>PTPD</strong> (pengurutan permintaan terlebih dahulu) secara sederhana mengurutkan semua track untuk meminimalisir lintasan, menghasilkan lintasan terkecil di antara semua algoritma. <br><br>
-    Grafik di atas menggambarkan bagaimana posisi head berubah sesuai urutan pada FCFS.
-  </p>
-</body>
-</html>
+    <strong>SCAN</strong> dan <strong>LOOK</strong> bergerak searah hingga ujung lalu berbal
