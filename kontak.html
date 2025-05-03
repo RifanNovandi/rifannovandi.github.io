@@ -4,23 +4,27 @@
   <meta charset="UTF-8">
   <title>Kontak</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: Arial, sans-serif;
-      background-color: #f0f8ff;
+      background-color: yellow;
+      height: 100vh;
       display: flex;
       justify-content: center;
-      padding: 40px;
+      align-items: center;
+      text-align: center;
     }
     .container {
-      border: 4px solid yellow;
+      background-color: transparent;
       padding: 30px;
-      max-width: 600px;
-      width: 100%;
-      background-color: white;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     h1 {
       color: #333;
+      margin-bottom: 20px;
     }
     .kontak-info {
       font-size: 18px;
@@ -30,8 +34,9 @@
       margin: 8px 0;
     }
     a {
-      color: #0066cc;
+      color: #000;
       text-decoration: none;
+      font-weight: bold;
     }
     a:hover {
       text-decoration: underline;
