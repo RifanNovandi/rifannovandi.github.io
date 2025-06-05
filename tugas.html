@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Tugas 1 Sistem Operasi - Simulasi Disk Scheduling</title>
+  <title>Tugas Sistem Operasi - Simulasi & Hasil PTPD</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
@@ -22,7 +22,7 @@
       margin-bottom: 30px;
     }
 
-    h2 {
+    h2, h1 {
       color: #1565c0;
       border-bottom: 2px solid #1976d2;
       padding-bottom: 5px;
@@ -53,16 +53,15 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
     th {
       background-color: #1976d2;
       color: white;
-      padding: 10px;
-      text-align: left;
-    }
-
-    td {
-      border: 1px solid #ccc;
-      padding: 10px;
     }
 
     footer {
@@ -75,13 +74,11 @@
 </head>
 <body>
   <header>
-  <h1>Tugas 1 Sistem Operasi</h1>
-  <p><strong>Nama:</strong> Rifan Novandi</p>
-  <p><strong>NIM:</strong> 2303010145</p>
-  <p><strong>Kelas:</strong> F-23</p>
-  <p><strong>Tanggal Lahir:</strong> 12 November 2002</p>
-</header>
-
+    <h1>Tugas 1 Sistem Operasi</h1>
+    <p><strong>Nama:</strong> Rifan Novandi</p>
+    <p><strong>NIM:</strong> 2303010145</p>
+    <p><strong>Kelas:</strong> F-23</p>
+    <p><strong>Tanggal Lahir:</strong> 12 November 2002</p>
   </header>
 
   <h2>Simulasi Disk Scheduling</h2>
@@ -157,18 +154,24 @@
     });
   </script>
 
-  <h3>Penjelasan Naratif:</h3>
-  <p>
-    Simulasi ini menunjukkan bagaimana berbagai algoritma penjadwalan disk (disk scheduling) bekerja dalam mengatur pergerakan head untuk mengakses track tertentu.
-    <br><br>
-    <strong>FCFS</strong> (First Come First Serve) langsung mengakses track sesuai urutan permintaan, sehingga menghasilkan lintasan sangat panjang (17.686 track). Algoritma ini kurang efisien, karena kepala disk bergerak dari track satu ke track lainnya tanpa mempertimbangkan jarak terdekat. <br>
-    <strong>SSTF</strong> (Shortest Seek Time First) memilih track terdekat terlebih dahulu dari posisi head saat ini, sehingga lebih efisien daripada FCFS, dengan total lintasan **7.858** track. <br>
-    <strong>SCAN</strong> bergerak dalam satu arah hingga mencapai ujung, kemudian membalik arah dan melanjutkan pemrosesan permintaan yang belum terjangkau. Algoritma ini membutuhkan total lintasan **6.089** track. <br>
-    <strong>C-SCAN</strong> serupa dengan SCAN, tetapi setelah mencapai ujung, kepala disk kembali ke posisi awal untuk melanjutkan proses, mencatatkan total lintasan **8.766** track. <br>
-    <strong>LOOK</strong> bekerja mirip dengan SCAN, tetapi berhenti tepat di track terakhir yang diperlukan tanpa harus mencapai ujung disk. Algoritma ini efisien dengan total lintasan **5.912** track. <br>
-    <strong>C-LOOK</strong> menggunakan prinsip yang mirip dengan C-SCAN, namun tidak memindai hingga ujung disk, menghasilkan total lintasan **6.790** track. <br>
-    Algoritma <strong>PTPD</strong> (Pengurutan Terlebih Dahulu) menyusun track berdasarkan urutan yang sudah ditentukan sebelumnya dan mengaksesnya dalam urutan tersebut. Ini adalah metode yang efisien dengan total lintasan **5.774** track.
-  </p>
+  <h2>Hasil Perhitungan PTPD</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>P</th><th>TB</th><th>LP</th><th>SM</th><th>SR</th><th>LT</th><th>PTPD</th>
+        <th>PTD/SJF</th><th>PTDP</th><th>RPTD</th><th>RR Q=2</th><th>RR Q=3</th><th>RR Q=4</th><th>RR Q=5</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>A</td><td>0</td><td>9</td><td>0</td><td>9.29</td><td>0.29</td><td>9</td><td>0.000</td><td>86.22</td><td>1.000</td><td>4.79</td><td>3.19</td><td>2.40</td><td>1.92</td></tr>
+      <tr><td>B</td><td>2</td><td>5</td><td>2</td><td>3.29</td><td>0.29</td><td>9</td><td>0.333</td><td>50.22</td><td>1.000</td><td>1.79</td><td>1.19</td><td>0.90</td><td>0.72</td></tr>
+      <tr><td>C</td><td>3</td><td>4</td><td>5</td><td>5.29</td><td>-1.71</td><td>12</td><td>0.600</td><td>77.22</td><td>1.333</td><td>1.79</td><td>1.19</td><td>0.90</td><td>0.72</td></tr>
+      <tr><td>D</td><td>6</td><td>6</td><td>7</td><td>7.29</td><td>-2.29</td><td>19</td><td>0.857</td><td>108.00</td><td>2.111</td><td>2.50</td><td>1.67</td><td>1.25</td><td>1.00</td></tr>
+      <tr><td>E</td><td>11</td><td>10</td><td>11</td><td>-1.00</td><td>-11.00</td><td>32</td><td>1.000</td><td>-9.00</td><td>3.556</td><td>-6.00</td><td>-4.00</td><td>-3.00</td><td>-2.40</td></tr>
+      <tr><td>F</td><td>9</td><td>15</td><td>-6</td><td>9.00</td><td>-15.00</td><td>18</td><td>0.563</td><td>-108.00</td><td>2.000</td><td>-3.00</td><td>-2.00</td><td>-1.50</td><td>-1.20</td></tr>
+      <tr><td>G</td><td>4</td><td>18</td><td>-14</td><td>-14.00</td><td>-18.00</td><td>8</td><td>0.211</td><td>-414.00</td><td>0.889</td><td>-16.00</td><td>-10.67</td><td>-8.00</td><td>-6.40</td></tr>
+    </tbody>
+  </table>
 
   <footer>
     <p>&copy; 2025 Tugas Sistem Operasi | Universitas XYZ</p>
