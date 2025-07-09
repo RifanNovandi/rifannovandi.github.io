@@ -1,180 +1,107 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <title>Tugas Sistem Operasi - Simulasi & Hasil PTPD</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 30px;
-      background: linear-gradient(135deg, #e0f7fa, #ffffff);
-      color: #333;
-    }
-
-    header {
-      background-color: #1565c0;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      border-radius: 8px;
-      margin-bottom: 30px;
-    }
-
-    h2, h1 {
-      color: #1565c0;
-      border-bottom: 2px solid #1976d2;
-      padding-bottom: 5px;
-    }
-
-    p {
-      font-size: 16px;
-    }
-
-    mark {
-      background-color: #ffeb3b;
-      font-weight: bold;
-    }
-
-    canvas {
-      max-width: 100%;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 10px;
-    }
-
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin-top: 20px;
-      background: #ffffffcc;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-    }
-
-    th {
-      background-color: #1976d2;
-      color: white;
-    }
-
-    footer {
-      margin-top: 50px;
-      font-size: 14px;
-      text-align: center;
-      color: #777;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Tugas 1 Sistem Operasi</h1>
-    <p><strong>Nama:</strong> Rifan Novandi</p>
-    <p><strong>NIM:</strong> 2303010145</p>
-    <p><strong>Kelas:</strong> F-23</p>
-    <p><strong>Tanggal Lahir:</strong> 12 November 2002</p>
-  </header>
-
-  <h2>Simulasi Disk Scheduling</h2>
-  <p><strong>Jumlah Track:</strong> 2000</p>
-  <p><strong>Posisi Head Awal:</strong> 1234</p>
-  <p><strong>Urutan Track:</strong> 1600, 1050, 1775, 1950, <mark>120</mark>, 825, 75, 1300, 1450, 600, <mark>1100</mark>, 1600, 1050, 30, 1900, <mark>2002</mark>, 700, 1300, 55, 425, <mark>145</mark>, 700, 1600, 200</p>
-
-  <h3>Total Lintasan Tiap Algoritma:</h3>
-  <table>
-    <tr><th>Algoritma</th><th>Total Lintasan Track</th></tr>
-    <tr><td>FCFS (First Come First Serve)</td><td>17,686</td></tr>
-    <tr><td>SSTF (Shortest Seek Time First)</td><td>7,858</td></tr>
-    <tr><td>SCAN</td><td>6,089</td></tr>
-    <tr><td>CSCAN</td><td>8,766</td></tr>
-    <tr><td>LOOK</td><td>5,912</td></tr>
-    <tr><td>C-LOOK</td><td>6,790</td></tr>
-    <tr><td>PTPD (Pengurutan Terlebih Dahulu)</td><td>5,774</td></tr>
-  </table>
-
-  <h3>Grafik Perjalanan Head Disk</h3>
-  <canvas id="diskChart" width="900" height="400"></canvas>
-
-  <script>
-    const ctx = document.getElementById('diskChart').getContext('2d');
-    const chart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: Array.from({length: 25}, (_, i) => i + 1),
-        datasets: [{
+<script>
+  const ctx = document.getElementById('diskChart').getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: Array.from({length: 25}, (_, i) => i + 1),
+      datasets: [
+        {
           label: 'FCFS',
           data: [1234, 1600, 1050, 1775, 1950, 120, 825, 75, 1300, 1450, 600, 1100, 1600, 1050, 30, 1900, 2002, 700, 1300, 55, 425, 145, 700, 1600, 200],
           borderColor: '#e53935',
           backgroundColor: '#e53935',
           fill: false,
           tension: 0.3,
-          pointRadius: 4,
-          pointHoverRadius: 6
-        }]
+          pointRadius: 3
+        },
+        {
+          label: 'SSTF',
+          data: [1234, 1300, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002, 1100, 1050, 1050, 825, 700, 700, 600, 425, 200, 145, 120, 75, 55, 30],
+          borderColor: '#43a047',
+          backgroundColor: '#43a047',
+          fill: false,
+          tension: 0.3,
+          pointRadius: 3
+        },
+        {
+          label: 'SCAN',
+          data: [1234, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002, 1100, 1050, 1050, 825, 700, 700, 600, 425, 200, 145, 120, 75, 55, 30],
+          borderColor: '#fb8c00',
+          backgroundColor: '#fb8c00',
+          fill: false,
+          tension: 0.3,
+          pointRadius: 3
+        },
+        {
+          label: 'CSCAN',
+          data: [1234, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002, 30, 55, 75, 120, 145, 200, 425, 600, 700, 700, 825, 1050, 1050, 1100, 1300],
+          borderColor: '#3949ab',
+          backgroundColor: '#3949ab',
+          fill: false,
+          tension: 0.3,
+          pointRadius: 3
+        },
+        {
+          label: 'LOOK',
+          data: [1234, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002, 1100, 1050, 1050, 825, 700, 700, 600, 425, 200, 145, 120, 75, 55, 30],
+          borderColor: '#8e24aa',
+          backgroundColor: '#8e24aa',
+          fill: false,
+          tension: 0.3,
+          pointRadius: 3
+        },
+        {
+          label: 'C-LOOK',
+          data: [1234, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002, 30, 55, 75, 120, 145, 200, 425, 600, 700, 700, 825, 1050, 1050, 1100, 1300],
+          borderColor: '#00acc1',
+          backgroundColor: '#00acc1',
+          fill: false,
+          tension: 0.3,
+          pointRadius: 3
+        },
+        {
+          label: 'PTPD',
+          data: [30, 55, 75, 120, 145, 200, 425, 600, 700, 700, 825, 1050, 1050, 1100, 1234, 1300, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002],
+          borderColor: '#d81b60',
+          backgroundColor: '#d81b60',
+          fill: false,
+          tension: 0.3,
+          pointRadius: 3
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: {
+            color: '#333'
+          }
+        }
       },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            labels: {
-              color: '#333'
-            }
+      scales: {
+        y: {
+          beginAtZero: false,
+          title: {
+            display: true,
+            text: 'Track Position',
+            color: '#333'
+          },
+          ticks: {
+            color: '#333'
           }
         },
-        scales: {
-          y: {
-            beginAtZero: false,
-            title: {
-              display: true,
-              text: 'Track Position',
-              color: '#333'
-            },
-            ticks: {
-              color: '#333'
-            }
+        x: {
+          title: {
+            display: true,
+            text: 'Step Ke-n',
+            color: '#333'
           },
-          x: {
-            title: {
-              display: true,
-              text: 'Step Ke-n',
-              color: '#333'
-            },
-            ticks: {
-              color: '#333'
-            }
+          ticks: {
+            color: '#333'
           }
         }
       }
-    });
-  </script>
-
-  <h2>Hasil Perhitungan PTPD</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>P</th><th>TB</th><th>LP</th><th>SM</th><th>SR</th><th>LT</th><th>PTPD</th>
-        <th>PTD/SJF</th><th>PTDP</th><th>RPTD</th><th>RR Q=2</th><th>RR Q=3</th><th>RR Q=4</th><th>RR Q=5</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>A</td><td>0</td><td>9</td><td>0</td><td>9.29</td><td>0.29</td><td>9</td><td>0.000</td><td>86.22</td><td>1.000</td><td>4.79</td><td>3.19</td><td>2.40</td><td>1.92</td></tr>
-      <tr><td>B</td><td>2</td><td>5</td><td>2</td><td>3.29</td><td>0.29</td><td>9</td><td>0.333</td><td>50.22</td><td>1.000</td><td>1.79</td><td>1.19</td><td>0.90</td><td>0.72</td></tr>
-      <tr><td>C</td><td>3</td><td>4</td><td>5</td><td>5.29</td><td>-1.71</td><td>12</td><td>0.600</td><td>77.22</td><td>1.333</td><td>1.79</td><td>1.19</td><td>0.90</td><td>0.72</td></tr>
-      <tr><td>D</td><td>6</td><td>6</td><td>7</td><td>7.29</td><td>-2.29</td><td>19</td><td>0.857</td><td>108.00</td><td>2.111</td><td>2.50</td><td>1.67</td><td>1.25</td><td>1.00</td></tr>
-      <tr><td>E</td><td>11</td><td>10</td><td>11</td><td>-1.00</td><td>-11.00</td><td>32</td><td>1.000</td><td>-9.00</td><td>3.556</td><td>-6.00</td><td>-4.00</td><td>-3.00</td><td>-2.40</td></tr>
-      <tr><td>F</td><td>9</td><td>15</td><td>-6</td><td>9.00</td><td>-15.00</td><td>18</td><td>0.563</td><td>-108.00</td><td>2.000</td><td>-3.00</td><td>-2.00</td><td>-1.50</td><td>-1.20</td></tr>
-      <tr><td>G</td><td>4</td><td>18</td><td>-14</td><td>-14.00</td><td>-18.00</td><td>8</td><td>0.211</td><td>-414.00</td><td>0.889</td><td>-16.00</td><td>-10.67</td><td>-8.00</td><td>-6.40</td></tr>
-    </tbody>
-  </table>
-
-  <footer>
-    <p>&copy; 2025 Tugas Sistem Operasi | Universitas Perjuangan</p>
-  </footer>
-</body>
-</html>
+    }
+  });
+</script>
