@@ -1,10 +1,70 @@
-
 <!DOCTYPE html>
 <html lang="id">
-<head><meta charset="UTF-8"><title>Galeri</title></head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galeri - Rifan Novandi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f7fa;
+    }
+    h1 {
+      color: #8b7500;
+      font-weight: 700;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .gallery {
+      margin-top: 30px;
+    }
+    .card img {
+      border-radius: 8px;
+      object-fit: cover;
+      height: 200px;
+    }
+    .btn-custom {
+      background-color: #8b7500;
+      color: white;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .btn-custom:hover {
+      background-color: #b8860b;
+    }
+  </style>
+</head>
 <body>
-  <h1>Galeri</h1>
-  <p>Berikut beberapa foto dan karya saya yang dapat dilihat.</p>
-  <a href="index.html">Kembali ke Beranda</a>
+
+  <div class="container">
+    <h1>Galeri</h1>
+    <p class="text-center mt-3">Berikut beberapa foto dan karya saya yang dapat dilihat.</p>
+
+    <div class="row gallery g-4">
+      <!-- Ganti 'images/foto1.jpg' dst dengan file yang kamu punya -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card">
+          <img src="images/foto1.jpg" class="card-img-top" alt="Foto 1">
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="card">
+          <img src="images/foto2.jpg" class="card-img-top" alt="Foto 2">
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="card">
+          <img src="images/foto3.jpg" class="card-img-top" alt="Foto 3">
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="index.html" class="btn btn-custom">Kembali ke Beranda</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
