@@ -4,119 +4,144 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Web - Rifan Novandi</title>
+
+  <!-- Link Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
     body { 
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-      background: #f0f8ff; 
-      margin: 0; 
-      padding: 0; 
-      line-height: 1.6;
+      background-color: #f0f8ff;
     }
-    header, footer { 
-      background: linear-gradient(135deg, #b8860b, #8b7500); 
-      color: white; 
-      padding: 20px; 
-      text-align: center; 
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    nav { 
-      background: #8b7500; 
-      padding: 15px 10px; 
+
+    header {
+      background: linear-gradient(135deg, #b8860b, #8b7500);
+      color: white;
       text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      padding: 40px 20px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
     }
-    nav a { 
-      color: white; 
-      margin: 0 15px; 
-      text-decoration: none;
-      padding: 8px 12px;
-      border-radius: 4px;
-      transition: background-color 0.3s;
-    }
-    nav a:hover {
-      background-color: #b8860b;
-    }
-    main { 
-      padding: 20px; 
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+
     .profile-img {
       width: 150px;
       height: 150px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid white;
-      margin: 20px auto;
-      display: block;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      border: 4px solid white;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
+
+    nav.navbar {
+      background-color: #8b7500;
+    }
+
+    nav a.nav-link {
+      color: white !important;
+      font-weight: 500;
+      margin-right: 10px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    nav a.nav-link:hover {
+      background-color: #b8860b;
+    }
+
     .welcome-section {
       background: white;
       padding: 30px;
-      border-radius: 8px;
+      border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       margin-bottom: 30px;
     }
+
     footer {
+      background: linear-gradient(135deg, #b8860b, #8b7500);
+      color: white;
+      text-align: center;
+      padding: 20px;
       margin-top: 30px;
-      padding: 15px;
     }
-    @media (max-width: 600px) {
-      nav a {
-        display: block;
-        margin: 10px 0;
-      }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <img src="images/foto-profile.jpg" alt="Foto Rifan Novandi" class="profile-img">
-  <h1>Selamat Datang di Web Rifan Novandi</h1>
-  <p>Rifan Novandi - 2303010145 - Kelas F-23</p>
-</header>
+  <!-- HEADER -->
+  <header>
+    <img src="images/foto-profile.jpg" alt="Foto Rifan Novandi" class="profile-img">
+    <h1>Selamat Datang di Web Rifan Novandi</h1>
+    <p>Rifan Novandi - 2303010145 - Kelas TI F-23</p>
+  </header>
 
-<nav>
-  <a href="index.html">Beranda</a>
-  <a href="tentang.html">Tentang</a>
-  <a href="galeri.html">Galeri</a>
-  <a href="kontak.html">Kontak</a>
-  <a href="tugas.html">Tugas Sistem Operasi</a>
-  <a href="pemrograman-internet.html">Tugas Pemrograman Internet</a>
-</nav>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand text-white fw-bold" href="#">R.N</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon text-white"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+          <li class="nav-item"><a class="nav-link" href="tugas.html">Tugas Sistem Operasi</a></li>
+          <li class="nav-item"><a class="nav-link" href="pemrograman-internet.html">Tugas Pemrograman Internet</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<main>
-  <section class="welcome-section">
-    <h2>Halo! 👋</h2>
-    <p>Selamat datang di website pribadi saya. Nama saya <strong>Rifan Novandi</strong>, mahasiswa dengan NIM <strong>2303010145</strong> dari <strong>Kelas TI F-23</strong>.</p>
-    <p>Website ini dibuat sebagai tugas untuk beberapa mata kuliah, di antaranya <b>Sistem Operasi</b> dan <b>Pemrograman Internet</b>.</p>
-    <p>Silakan kunjungi halaman <a href="tugas.html" style="color: #b8860b; text-decoration: underline;">Tugas Sistem Operasi</a> atau <a href="pemrograman-internet.html" style="color: #b8860b; text-decoration: underline;">Tugas Pemrograman Internet</a> untuk melihat hasil pekerjaan saya.</p>
-  </section>
-  
-  <section>
-    <h3>Update Terbaru</h3>
-    <article>
-      <h4>Tugas Sistem Operasi</h4>
-      <p>Telah mengupload tugas terbaru untuk mata kuliah Sistem Operasi. Silakan cek di menu Tugas.</p>
-      <small>Diposting: 29 April 2025</small>
-    </article>
+  <!-- MAIN CONTENT -->
+  <main class="container my-4">
+    <section class="welcome-section">
+      <h2 class="mb-3">Halo! 👋</h2>
+      <p>Selamat datang di website pribadi saya. Nama saya <strong>Rifan Novandi</strong>, mahasiswa dengan NIM <strong>2303010145</strong> dari <strong>Kelas TI F-23</strong>.</p>
+      <p>Website ini dibuat sebagai tugas untuk beberapa mata kuliah, di antaranya <b>Sistem Operasi</b> dan <b>Pemrograman Internet</b>.</p>
+      <p>Silakan kunjungi halaman 
+        <a href="tugas.html" class="text-warning text-decoration-underline">Tugas Sistem Operasi</a> 
+        atau 
+        <a href="pemrograman-internet.html" class="text-warning text-decoration-underline">Tugas Pemrograman Internet</a> 
+        untuk melihat hasil pekerjaan saya.
+      </p>
+    </section>
 
-    <article style="margin-top: 20px;">
-      <h4>Tugas Pemrograman Internet</h4>
-      <p>Tugas baru untuk mata kuliah Pemrograman Internet telah ditambahkan, termasuk desain halaman web menggunakan HTML, CSS, dan JavaScript.</p>
-      <small>Diposting: 5 Oktober 2025</small>
-    </article>
-  </section>
-</main>
+    <section>
+      <h3 class="mb-3">📰 Update Terbaru</h3>
 
-<footer>
-  <p>&copy; 2025 Rifan Novandi - All Rights Reserved</p>
-  <p>Email: <a href="mailto:2303010145@unper.ac.id" style="color: white;">2303010145@unper.ac.id</a></p>
-</footer>
+      <div class="card mb-3 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Tugas Sistem Operasi</h5>
+          <p class="card-text">Telah mengupload tugas terbaru untuk mata kuliah Sistem Operasi. Silakan cek di menu Tugas.</p>
+          <small class="text-muted">Diposting: 29 April 2025</small>
+        </div>
+      </div>
 
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Tugas Pemrograman Internet</h5>
+          <p class="card-text">Tugas baru untuk mata kuliah Pemrograman Internet telah ditambahkan, termasuk desain halaman web menggunakan HTML, CSS, dan JavaScript.</p>
+          <small class="text-muted">Diposting: 5 Oktober 2025</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Rifan Novandi - All Rights Reserved</p>
+    <p>Email: <a href="mailto:2303010145@unper.ac.id">2303010145@unper.ac.id</a></p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
