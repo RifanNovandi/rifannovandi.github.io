@@ -1,94 +1,127 @@
-<script>
-  const ctx = document.getElementById('diskChart').getContext('2d');
-  const chart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      // Perbaikan di sini: hapus huruf "s"
-      labels: Array.from({ length: 25 }, (_, i) => i + 1),
-      datasets: [
-        {
-          label: 'FCFS',
-          data: [1234, 1600, 1050, 1775, 1950, 120, 825, 75, 1300, 1450, 600, 1100, 1600, 1050, 30, 1900, 2002, 700, 1300, 55, 425, 145, 700, 1600, 200],
-          borderColor: '#e53935',
-          backgroundColor: '#e53935',
-          fill: false,
-          tension: 0.3,
-          pointRadius: 3
-        },
-        {
-          label: 'SSTF',
-          data: [1234, 1300, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002, 1100, 1050, 1050, 825, 700, 700, 600, 425, 200, 145, 120, 75, 55, 30],
-          borderColor: '#43a047',
-          backgroundColor: '#43a047',
-          fill: false,
-          tension: 0.3,
-          pointRadius: 3
-        },
-        {
-          label: 'SCAN',
-          data: [1234, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002, 1100, 1050, 1050, 825, 700, 700, 600, 425, 200, 145, 120, 75, 55, 30],
-          borderColor: '#fb8c00',
-          backgroundColor: '#fb8c00',
-          fill: false,
-          tension: 0.3,
-          pointRadius: 3
-        },
-        {
-          label: 'CSCAN',
-          data: [1234, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002, 30, 55, 75, 120, 145, 200, 425, 600, 700, 700, 825, 1050, 1050, 1100, 1300],
-          borderColor: '#3949ab',
-          backgroundColor: '#3949ab',
-          fill: false,
-          tension: 0.3,
-          pointRadius: 3
-        },
-        {
-          label: 'LOOK',
-          data: [1234, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002, 1100, 1050, 1050, 825, 700, 700, 600, 425, 200, 145, 120, 75, 55, 30],
-          borderColor: '#8e24aa',
-          backgroundColor: '#8e24aa',
-          fill: false,
-          tension: 0.3,
-          pointRadius: 3
-        },
-        {
-          label: 'C-LOOK',
-          data: [1234, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002, 30, 55, 75, 120, 145, 200, 425, 600, 700, 700, 825, 1050, 1050, 1100, 1300],
-          borderColor: '#00acc1',
-          backgroundColor: '#00acc1',
-          fill: false,
-          tension: 0.3,
-          pointRadius: 3
-        },
-        {
-          label: 'PTPD',
-          data: [30, 55, 75, 120, 145, 200, 425, 600, 700, 700, 825, 1050, 1050, 1100, 1234, 1300, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002],
-          borderColor: '#d81b60',
-          backgroundColor: '#d81b60',
-          fill: false,
-          tension: 0.3,
-          pointRadius: 3
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          labels: { color: '#333' }
-        }
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Penjadwalan Disk - Rifan Novandi</title>
+  <!-- Tambahkan link Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+      text-align: center;
+    }
+    canvas {
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Grafik Penjadwalan Disk</h1>
+
+  <!-- Elemen canvas tempat grafik ditampilkan -->
+  <canvas id="diskChart"></canvas>
+
+  <!-- Script Chart.js -->
+  <script>
+    const ctx = document.getElementById('diskChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: Array.from({ length: 25 }, (_, i) => i + 1),
+        datasets: [
+          {
+            label: 'FCFS',
+            data: [1234, 1600, 1050, 1775, 1950, 120, 825, 75, 1300, 1450, 600, 1100, 1600, 1050, 30, 1900, 2002, 700, 1300, 55, 425, 145, 700, 1600, 200],
+            borderColor: '#e53935',
+            backgroundColor: '#e53935',
+            fill: false,
+            tension: 0.3,
+            pointRadius: 3
+          },
+          {
+            label: 'SSTF',
+            data: [1234, 1300, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002, 1100, 1050, 1050, 825, 700, 700, 600, 425, 200, 145, 120, 75, 55, 30],
+            borderColor: '#43a047',
+            backgroundColor: '#43a047',
+            fill: false,
+            tension: 0.3,
+            pointRadius: 3
+          },
+          {
+            label: 'SCAN',
+            data: [1234, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002, 1100, 1050, 1050, 825, 700, 700, 600, 425, 200, 145, 120, 75, 55, 30],
+            borderColor: '#fb8c00',
+            backgroundColor: '#fb8c00',
+            fill: false,
+            tension: 0.3,
+            pointRadius: 3
+          },
+          {
+            label: 'CSCAN',
+            data: [1234, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002, 30, 55, 75, 120, 145, 200, 425, 600, 700, 700, 825, 1050, 1050, 1100, 1300],
+            borderColor: '#3949ab',
+            backgroundColor: '#3949ab',
+            fill: false,
+            tension: 0.3,
+            pointRadius: 3
+          },
+          {
+            label: 'LOOK',
+            data: [1234, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002, 1100, 1050, 1050, 825, 700, 700, 600, 425, 200, 145, 120, 75, 55, 30],
+            borderColor: '#8e24aa',
+            backgroundColor: '#8e24aa',
+            fill: false,
+            tension: 0.3,
+            pointRadius: 3
+          },
+          {
+            label: 'C-LOOK',
+            data: [1234, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002, 30, 55, 75, 120, 145, 200, 425, 600, 700, 700, 825, 1050, 1050, 1100, 1300],
+            borderColor: '#00acc1',
+            backgroundColor: '#00acc1',
+            fill: false,
+            tension: 0.3,
+            pointRadius: 3
+          },
+          {
+            label: 'PTPD',
+            data: [30, 55, 75, 120, 145, 200, 425, 600, 700, 700, 825, 1050, 1050, 1100, 1234, 1300, 1300, 1450, 1600, 1600, 1600, 1775, 1900, 1950, 2002],
+            borderColor: '#d81b60',
+            backgroundColor: '#d81b60',
+            fill: false,
+            tension: 0.3,
+            pointRadius: 3
+          }
+        ]
       },
-      scales: {
-        y: {
-          beginAtZero: false,
-          title: { display: true, text: 'Track Position', color: '#333' },
-          ticks: { color: '#333' }
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: { color: '#333' }
+          }
         },
-        x: {
-          title: { display: true, text: 'Step Ke-n', color: '#333' },
-          ticks: { color: '#333' }
+        scales: {
+          y: {
+            beginAtZero: false,
+            title: { display: true, text: 'Track Position', color: '#333' },
+            ticks: { color: '#333' }
+          },
+          x: {
+            title: { display: true, text: 'Step Ke-n', color: '#333' },
+            ticks: { color: '#333' }
+          }
         }
       }
-    }
-  });
-</script>
+    });
+  </script>
+</body>
+</html>
