@@ -14,12 +14,18 @@
       color: #333;
       text-align: center;
     }
+    h1 {
+      margin-bottom: 30px;
+    }
     canvas {
-      max-width: 900px;
-      margin: 20px auto;
+      width: 90vw !important;  /* 90% dari lebar layar */
+      height: 60vh !important; /* 60% dari tinggi layar */
+      display: block;
+      margin: 0 auto;
       background: white;
       border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      padding: 10px;
     }
   </style>
 </head>
@@ -104,19 +110,25 @@
       },
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
           legend: {
-            labels: { color: '#333' }
+            labels: { color: '#333', font: { size: 14 } }
+          },
+          title: {
+            display: true,
+            text: 'Perbandingan Algoritma Penjadwalan Disk',
+            font: { size: 18 }
           }
         },
         scales: {
           y: {
             beginAtZero: false,
-            title: { display: true, text: 'Track Position', color: '#333' },
+            title: { display: true, text: 'Posisi Track', color: '#333' },
             ticks: { color: '#333' }
           },
           x: {
-            title: { display: true, text: 'Step Ke-n', color: '#333' },
+            title: { display: true, text: 'Langkah ke-n', color: '#333' },
             ticks: { color: '#333' }
           }
         }
