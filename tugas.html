@@ -3,7 +3,8 @@
   const chart = new Chart(ctx, {
     type: 'line',
     data: {
-      labels: Array.from({length: 25}, (_, i) => i + 1),
+      // Perbaikan di sini: hapus huruf "s"
+      labels: Array.from({ length: 25 }, (_, i) => i + 1),
       datasets: [
         {
           label: 'FCFS',
@@ -74,32 +75,18 @@
       responsive: true,
       plugins: {
         legend: {
-          labels: {
-            color: '#333'
-          }
+          labels: { color: '#333' }
         }
       },
       scales: {
         y: {
           beginAtZero: false,
-          title: {
-            display: true,
-            text: 'Track Position',
-            color: '#333'
-          },
-          ticks: {
-            color: '#333'
-          }
+          title: { display: true, text: 'Track Position', color: '#333' },
+          ticks: { color: '#333' }
         },
         x: {
-          title: {
-            display: true,
-            text: 'Step Ke-n',
-            color: '#333'
-          },
-          ticks: {
-            color: '#333'
-          }
+          title: { display: true, text: 'Step Ke-n', color: '#333' },
+          ticks: { color: '#333' }
         }
       }
     }
