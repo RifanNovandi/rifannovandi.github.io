@@ -5,33 +5,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Galeri - Rifan Novandi</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f4f7fa;
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      color: #0d47a1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
+
     h1 {
-      color: #8b7500;
+      color: #0d47a1;
       font-weight: 700;
-      margin-top: 40px;
+      margin-top: 50px;
       text-align: center;
     }
+
+    p.subtitle {
+      text-align: center;
+      color: #444;
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+
     .gallery {
-      margin-top: 30px;
+      margin-top: 20px;
     }
+
+    .card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 25px rgba(33, 150, 243, 0.25);
+    }
+
     .card img {
-      border-radius: 8px;
       object-fit: cover;
-      height: 200px;
+      height: 220px;
+      transition: transform 0.5s ease;
     }
+
+    .card:hover img {
+      transform: scale(1.08);
+    }
+
+    .card-body {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 15px 10px;
+    }
+
+    .card-body h5 {
+      color: #1565c0;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
     .btn-custom {
-      background-color: #8b7500;
+      background-color: #1976d2;
       color: white;
-      border-radius: 8px;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-weight: 500;
+      transition: 0.3s;
+      margin-top: 40px;
+    }
+
+    .btn-custom:hover {
+      background-color: #1565c0;
+      box-shadow: 0 4px 14px rgba(21, 101, 192, 0.3);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: auto;
+      background: linear-gradient(135deg, #2196f3, #1565c0);
+      color: white;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: underline;
       transition: 0.3s;
     }
-    .btn-custom:hover {
-      background-color: #b8860b;
+
+    footer a:hover {
+      color: #bbdefb;
     }
   </style>
 </head>
@@ -39,31 +109,51 @@
 
   <div class="container">
     <h1>Galeri</h1>
-    <p class="text-center mt-3">Berikut beberapa foto dan karya saya yang dapat dilihat.</p>
+    <p class="subtitle">Kumpulan foto, karya, dan momen kegiatan saya di bidang teknologi dan gaming 🎮</p>
 
     <div class="row gallery g-4">
-      <!-- Ganti 'images/foto1.jpg' dst dengan file yang kamu punya -->
+      <!-- Ganti src dengan foto kamu -->
       <div class="col-md-4 col-sm-6">
         <div class="card">
           <img src="images/foto1.jpg" class="card-img-top" alt="Foto 1">
+          <div class="card-body">
+            <h5>Proyek Sistem Operasi</h5>
+            <p class="text-muted mb-0">Tugas praktikum & simulasi kernel</p>
+          </div>
         </div>
       </div>
+
       <div class="col-md-4 col-sm-6">
         <div class="card">
           <img src="images/foto2.jpg" class="card-img-top" alt="Foto 2">
+          <div class="card-body">
+            <h5>Desain Web Pribadi</h5>
+            <p class="text-muted mb-0">Tampilan modern dengan HTML & Bootstrap</p>
+          </div>
         </div>
       </div>
+
       <div class="col-md-4 col-sm-6">
         <div class="card">
           <img src="images/foto3.jpg" class="card-img-top" alt="Foto 3">
+          <div class="card-body">
+            <h5>Channel Lazyyy</h5>
+            <p class="text-muted mb-0">Konten gameplay dan streaming</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="text-center mt-5">
-      <a href="index.html" class="btn btn-custom">Kembali ke Beranda</a>
+    <div class="text-center">
+      <a href="index.html" class="btn btn-custom mt-4">
+        <i class="bi bi-arrow-left-circle"></i> Kembali ke Beranda
+      </a>
     </div>
   </div>
+
+  <footer>
+    © 2025 Rifan Novandi | Dibuat dengan Boostrap 5
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
