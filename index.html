@@ -102,6 +102,14 @@
     .dropdown-menu {
       background-color: #007BFF;
     }
+
+    .navbar-toggler {
+      border-color: #fff;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/ %3E%3C/svg%3E");
+    }
   </style>
 </head>
 <body>
@@ -117,13 +125,15 @@
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
       <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon text-white"></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
           <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
           <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+
           <!-- Dropdown untuk Mata Kuliah -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
@@ -132,15 +142,13 @@
             <ul class="dropdown-menu border-0">
               <li><a class="dropdown-item text-white" href="sistem-operasi.html">Sistem Operasi</a></li>
               <li><a class="dropdown-item text-white" href="pemrograman-internet.html">Pemrograman Internet</a></li>
-              <li><a class="dropdown-item text-white" href="praktikum-pemrograman-internet">Praktikum Pemrograman Internet</a></li>
+              <li><a class="dropdown-item text-white" href="praktikum-pemrograman-internet.html">Praktikum Pemrograman Internet</a></li>
             </ul>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
-
 
   <!-- MAIN CONTENT -->
   <main class="container my-5">
@@ -179,7 +187,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Rifan Novandi | All Rights Reserved</p>
+    <p>&copy; 2025 <b>Rifan Novandi</b> | All Rights Reserved</p>
     <p>Email: <a href="mailto:2303010145@unper.ac.id">2303010145@unper.ac.id</a></p>
   </footer>
 
