@@ -40,6 +40,7 @@
       font-size: 1.1rem;
       color: #555;
       text-align: center;
+      gap: 15px;
     }
 
     .btn-custom {
@@ -48,10 +49,11 @@
       border-radius: 8px;
       text-decoration: none;
       padding: 10px 20px;
-      margin-top: 25px;
+      margin-top: 10px;
       transition: 0.3s;
       font-weight: 500;
       box-shadow: 0 3px 10px rgba(25, 118, 210, 0.3);
+      display: inline-block;
     }
 
     .btn-custom:hover {
@@ -74,7 +76,6 @@
       color: #ffeb3b;
     }
 
-    /* Animasi lembut */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -92,12 +93,21 @@
   </header>
 
   <main>
-    <p>Konten tugas akan ditambahkan di sini...</p>
+    <p>Silakan pilih salah satu tugas untuk dibuka:</p>
+
+    <a href="https://rifannovandi.github.io/Website-Unper.github.io/" class="btn-custom" target="_blank">
+      🌐 Website Universitas Perjuangan
+    </a>
+
+    <a href="https://rifannovandi.github.io/Praktikum_p4_2303010145/" class="btn-custom" target="_blank">
+      💻 Praktikum P4 - Pemrograman Internet
+    </a>
+
     <a href="index.html" class="btn-custom">⬅ Kembali ke Beranda</a>
   </main>
 
   <footer>
-     <p>Dibuat oleh: <b>Rifan Novandi</b> | NIM: 2303010145 | Kelas: TI F 23</p>
+    <p>Dibuat oleh: <b>Rifan Novandi</b> | NIM: 2303010145 | Kelas: TI F 23</p>
     <p>Mata Kuliah: <b>Praktikum Pemrograman Internet</b></p>
   </footer>
 </body>
